@@ -122,10 +122,10 @@ const charData = [
         storyLink: "https://rentry.org/chagiaroidko"
     },
     {
-        name: "Phó Tự Sâm",
+        name: "Kimura Shion",
         author: "Palette Số Hóa",
         category: "Hiện Đại",
-        tags: ["TXVT", "lốp"],
+        tags: ["TXVT", "lốp", "Nhật Bản"],
         ggaiLink: "https://aistudio.google.com/app/prompts/1c7opgpjSfiJAFNAbUjuLlXfMgas-kcoJ",
         storyLink: "https://rentry.org/loptruong"
     },
