@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Tổng Hợp Link Của Tôi</title>
+    <!-- Nhúng Tailwind CSS để làm giao diện -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script>
+        // Đoạn code nhỏ giúp kiểm tra và áp dụng chế độ sáng/tối khi vừa tải trang
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</head>
+<!-- Mặc định nền hồng nhạt, khi bật Dark Mode chuyển sang nền xám đen -->
+<body class="bg-pink-50 dark:bg-gray-900 min-h-screen text-gray-800 dark:text-gray-200 font-sans p-6 transition-colors duration-300">
+
+    <!-- NÚT CHUYỂN ĐỔI SÁNG / TỐI (Góc trên cùng bên phải) -->
+    <div class="max-w-6xl mx-auto flex justify-end mb-4">
+        <button id="theme-toggle" class="cursor-pointer bg-white dark:bg-gray-800 text-gray-700 dark:text-yellow-400 font-medium px-4 py-2 rounded-full shadow-sm border border-pink-100 dark:border-gray-700 hover:scale-105 transition-all text-sm flex items-center gap-2">
+            <span id="theme-icon">☀️</span> <span id="theme-text">Chế độ Sáng</span>
+        </button>
+    </div>
+
+    <!-- TIÊU ĐỀ TRANG WEB -->
+    <header class="text-center my-8">
+        <h1 class="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-2">🌸 Danh Sách Link Tổng Hợp 🌸</h1>
+        <p class="text-gray-500 dark:text-gray-400">Nơi lưu trữ và truy cập nhanh các liên kết yêu thích</p>
+    </header>
+
+    <!-- KHU VỰC CHỨA CÁC THẺ LINK (BẤM VÀO LÀ CHUYỂN LINK) -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- THẺ LINK SỐ 1 -->
+        <!-- Thẻ <a> bọc toàn bộ bên ngoài giúp cả khung đều bấm được -->
+        <a href="https://example.com/link-1" target="_blank" class="block bg-white dark:bg-gray-800 rounded-2xl border border-pink-100 dark:border-gray-700 p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+            <div>
+                <span class="text-xs font-semibold bg-pink-100 text-pink-600 dark:bg-pink-950 dark:text-pink-300 px-2.5 py-1 rounded-full">KHOA ĐA KHOA TỔNG HỢP</span>
+                <div class="flex items-center gap-2 mt-3 mb-2">
+                    <span class="text-2xl">🐱</span>
+                    <!-- Hiệu ứng group-hover: Khi di chuột vào khung, chữ tiêu đề sẽ tự đổi màu hồng -->
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">Kurose Minato</h3>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Tình cảm vườn trường ngọt ngào vui vẻ với câu bạn bị đứt mất dây thần kinh yêu đương...</p>
+                <div class="flex gap-2 text-xs text-gray-400 dark:text-gray-500">
+                    <span>#txvt</span> <span>#hiện_đại</span> <span>#nhật_bản</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- THẺ LINK SỐ 2 -->
+        <a href="https://example.com/link-2" target="_blank" class="block bg-white dark:bg-gray-800 rounded-2xl border border-pink-100 dark:border-gray-700 p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+            <div>
+                <span class="text-xs font-semibold bg-purple-100 text-purple-600 dark:bg-purple-950 dark:text-purple-300 px-2.5 py-1 rounded-full">KHOA CỔ ĐẠI & HUYỀN HUYỄN</span>
+                <div class="flex items-center gap-2 mt-3 mb-2">
+                    <span class="text-2xl">🦁</span>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">Hệ thống sống sót tr...</h3>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Nhiệm vụ của các bạn là phải sống sót đến đại kết cục mới được trở về...</p>
+                <div class="flex gap-2 text-xs text-gray-400 dark:text-gray-500">
+                    <span>#hậu_cung</span> <span>#hệ_thống</span> <span>#sinh_tồn</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- THẺ LINK SỐ 3 -->
+        <a href="https://example.com/link-3" target="_blank" class="block bg-white dark:bg-gray-800 rounded-2xl border border-pink-100 dark:border-gray-700 p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+            <div>
+                <span class="text-xs font-semibold bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-300 px-2.5 py-1 rounded-full">PHÒNG TRỊ LIỆU</span>
+                <div class="flex items-center gap-2 mt-3 mb-2">
+                    <span class="text-2xl">🏡</span>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">A Mộc</h3>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Mời cả nhà cùng thưởng thức âm hưởng núi rừng Tây Bắc nhé.</p>
+                <div class="flex gap-2 text-xs text-gray-400 dark:text-gray-500">
+                    <span>#chữa_lành</span> <span>#trai_bản</span>
+                </div>
+            </div>
+        </a>
+
+    </main>
+
+    <footer class="text-center text-xs text-gray-400 dark:text-gray-500 my-10">
+        © 2026 - Được thiết kế bởi Newbie Đáng Yêu
+    </footer>
+
+    <!-- ĐOẠN SCRIPT XỬ LÝ ĐỔI MÀU SÁNG / TỐI -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Hàm cập nhật chữ và icon hiển thị trên nút bấm
+        function updateToggleBtn() {
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Chế độ Tối';
+            } else {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Chế độ Sáng';
+            }
+        }
+
+        // Chạy hàm cập nhật ngay lần đầu tải trang
+        updateToggleBtn();
+
+        // Lắng nghe sự kiện khi click vào nút bấm
+        themeToggleBtn.addEventListener('click', () => {
+            // Thêm hoặc xóa class 'dark' ở thẻ <html> ngoài cùng
+            document.documentElement.classList.toggle('dark');
+            
+            // Lưu lựa chọn của người dùng vào bộ nhớ trình duyệt (để lần sau vào web không bị mất)
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+            
+            updateToggleBtn();
+        });
+    </script>
+</body>
+</html>
