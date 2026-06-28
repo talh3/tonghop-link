@@ -129,4 +129,12 @@ const charData = [
         ggaiLink: "https://aistudio.google.com/app/prompts/1c7opgpjSfiJAFNAbUjuLlXfMgas-kcoJ",
         storyLink: "https://rentry.org/loptruong"
     },
+    {
+        name: "Hàn Chiêu Viễn",
+        author: "Gạch",
+        category: "Hiện Đại",
+        tags: ["guide x esper"],
+        ggaiLink: "https://aistudio.google.com/app/prompts/1D-F2pEr9qRR3uXj0Ib4PBY_tE0K86EJZ",
+        storyLink: "https://rentry.org/chieuvien"
+    },
 ];
