@@ -40,5 +40,23 @@ const charData = [
         tags: ["showbiz", "nhân thú"],
         ggaiLink: "https://aistudio.google.com/app/prompts/1xrjitbMKLJntK5eeRDjh5oArlRX0MQAH",
         storyLink: "https://rentry.org/cho-con"
-    }
+    },
+    {
+        name: "Draco Malfoy",
+        author: "Mộng tàn hoa tương liễu",
+        category: "Hiện đại",
+        tags: ["Harry Potter", "nhẹ nhàng"],
+        ggaiLink: "https://aistudio.google.com/prompts/1wyAe-iFmDsNf7guOGeEDmPLV-0_n9y6S",
+        storyLink: "https://rentry.org/draco-3tuoi"
+    },
+    {
+        name: "Cẩn Hoài Tri",
+        author: "Sao Nhỏ",
+        category: "Hiện đại",
+        tags: ["streamer", "ngược?"],
+        ggaiLink: "https://aistudio.google.com/prompts/1_gIewRd8BVu1RcMCvsL0CFnrXONsMEIW",
+        storyLink: "https://rentry.org/can-hoai-tri"
+    },
+
+
 ];
