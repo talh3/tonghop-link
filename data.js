@@ -113,4 +113,12 @@ const charData = [
         ggaiLink: "https://aistudio.google.com/app/prompts/1QJj4FzkItRXef9A5vObEe0x-LBqHBZtG",
         storyLink: "https://rentry.org/qsuu"
     },
+    {
+        name: "Phó Tự Sâm",
+        author: "Palette Số Hóa",
+        category: "Dân Quốc",
+        tags: ["què", "gà trống nuôi con"],
+        ggaiLink: "https://aistudio.google.com/app/prompts/1QJj4FzkItRXef9A5vObEe0x-LBqHBZtG",
+        storyLink: "https://rentry.org/chagiaroidko"
+    },
 ];
