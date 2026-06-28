@@ -136,5 +136,5 @@ const charData = [
         tags: ["guide x esper"],
         ggaiLink: "https://aistudio.google.com/app/prompts/1D-F2pEr9qRR3uXj0Ib4PBY_tE0K86EJZ",
         storyLink: "https://rentry.org/chieuvien"
-    },
+    }
 ];
