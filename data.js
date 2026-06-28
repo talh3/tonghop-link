@@ -57,6 +57,60 @@ const charData = [
         ggaiLink: "https://aistudio.google.com/prompts/1_gIewRd8BVu1RcMCvsL0CFnrXONsMEIW",
         storyLink: "https://rentry.org/can-hoai-tri"
     },
-
-
+    {
+        name: "Đình Cảnh",
+        author: "Hoa Hoa",
+        category: "Hiện đại",
+        tags: ["thanh mai trúc mã", "kỵ sĩ & công chúa"],
+        ggaiLink: "https://aistudio.google.com/prompts/1yDAQ9NgXDMKaXLD9C9itTSGo5Ly_guoY",
+        storyLink: "https://rentry.org/dinhn-canh"
+    },
+    {
+        name: "Senge Namgyal",
+        author: "Cửa Hàng Búp Bê",
+        category: "Hiện đại",
+        tags: ["tây tạng", "mới "],
+        ggaiLink: "https://aistudio.google.com/prompts/1HeRXSRBixKceKdcBlyhXwjhO_44ehgCb",
+        storyLink: "https://rentry.org/senge-us"
+    },
+    {
+        name: "Lục Trạch",
+        author: "??",
+        category: "Hiện đại",
+        tags: ["vịt con?"],
+        ggaiLink: "https://aistudio.google.com/prompts/1o-Ry60xICJvgQEQe8nYt8kqSCnNa6JAR",
+        storyLink: "https://rentry.org/vitcon"
+    },
+    {
+        name: "Trần Dạ",
+        author: "??",
+        category: "Hiện đại",
+        tags: ["TXVT", "mũm mĩm", "đại ca"],
+        ggaiLink: "https://aistudio.google.com/prompts/10IgoqntnX9Q3oamgD57sxJ2bpdGvlJag",
+        storyLink: "https://rentry.org/tranda"
+    },
+    {
+        name: "Cố Đức Lâm",
+        author: "Bác Sĩ Kỳ Cục",
+        category: "Thực tế ảo",
+        tags: ["nhiều thể loại", "enemies to lovers"],
+        ggaiLink: "https://aistudio.google.com/prompts/1jGJoi3GH9L56wx1COqgMsaJqNPFCLU5a",
+        storyLink: "https://rentry.org/vr-duclam"
+    },
+    {
+        name: "Hệ Thống Giải Cứu Bánh Bao Phản Diện",
+        author: "Hoa Hoa",
+        category: "Xuyên Nhanh",
+        tags: ["cứu phản diện", "dưỡng thành"],
+        ggaiLink: "https://aistudio.google.com/prompts/1H6wx4MytEd4fDo1QQCoACzkBaHY8NXE2",
+        
+    },
+    {
+        name: "Phó Hoài Cẩn",
+        author: "Aurora",
+        category: "Hiện đại",
+        tags: ["quân sự", "thế gia"],
+        ggaiLink: "https://aistudio.google.com/app/prompts/1QJj4FzkItRXef9A5vObEe0x-LBqHBZtG",
+        storyLink: "https://rentry.org/qsuu"
+    },
 ];
