@@ -30,23 +30,14 @@
             </button>
         </div>
 
-        <!-- Hàng 2: Bộ lọc Tác giả & Bảng chữ cái -->
-        <div class="bg-white dark:bg-[#1e1e1f] p-4 rounded-2xl border border-pink-100 dark:border-[#333334] shadow-sm space-y-4">
-            
-            <!-- Lọc theo tác giả -->
+        <!-- Hàng 2: Bộ lọc Tác giả -->
+        <div class="bg-white dark:bg-[#1e1e1f] p-4 rounded-2xl border border-pink-100 dark:border-[#333334] shadow-sm">
             <div class="flex flex-col sm:flex-row sm:items-center gap-3">
                 <label class="text-sm font-semibold text-gray-600 dark:text-gray-300 shrink-0"><i class="fa-solid fa-pen-nib mr-1"></i> Tác giả:</label>
                 <select id="author-select" onchange="filterByAuthor(this.value)" class="w-full sm:w-auto bg-pink-50 dark:bg-[#2d2d30] border border-pink-200 dark:border-[#524a4d] text-gray-700 dark:text-gray-200 text-sm rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-300 transition cursor-pointer">
                     <option value="">Tất cả Tác giả</option>
-                    <!-- JavaScript sẽ tự động điền tên các tác giả vào đây -->
+                    <!-- JavaScript tự động điền -->
                 </select>
-            </div>
-
-            <!-- Lọc theo chữ cái A-Z -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide" id="alphabet-container">
-                <span class="text-sm font-semibold text-gray-600 dark:text-gray-300 shrink-0 mr-1"><i class="fa-solid fa-font mr-1"></i> Chữ cái:</span>
-                <button onclick="filterByLetter('')" id="btn-letter-all" class="shrink-0 px-3 py-1 rounded-lg text-sm font-medium transition-colors bg-pink-500 text-white shadow-sm">Tất cả</button>
-                <!-- JavaScript sẽ tự tạo các nút A-Z vào đây -->
             </div>
         </div>
 
@@ -68,8 +59,7 @@
     </footer>
 
     <script>
-        // 1. NƠI NHẬP DỮ LIỆU
-        // THÊM: Thuộc tính "author" để ghi tên tác giả.
+        // 1. DỮ LIỆU NHÂN VẬT
         let charData = [
             {
                 name: "Khương Phi Đàm",
@@ -81,11 +71,11 @@
             },
             {
                 name: "Ashton Calloway",
-                author: "Mẹ Gà",
+                author: "Gà",
                 category: "Hiện đại",
                 tags: ["FWB", "yearning", "off-campus inspired"],
                 ggaiLink: "https://aistudio.google.com/app/prompts/1VBfM5aGrPGW4t8HNRAX4SJEsZKmdOpYj",
-                storyLink: "https://rentry.co/ashton_ta"
+                storyLink: "https://rentry.org/xaonhap"
             },
             {
                 name: "Khương Viết Lâm",
@@ -111,11 +101,9 @@
         // CÁC BIẾN LƯU TRẠNG THÁI LỌC
         let currentTag = "";
         let currentAuthor = "";
-        let currentLetter = "";
 
-        // 3. KHỞI TẠO GIAO DIỆN BỘ LỌC
+        // 3. KHỞI TẠO BỘ LỌC TÁC GIẢ
         function initFilters() {
-            // Khởi tạo danh sách tác giả tự động
             const authors = [...new Set(charData.map(char => char.author))].sort((a, b) => a.localeCompare(b, 'vi'));
             const authorSelect = document.getElementById('author-select');
             authors.forEach(author => {
@@ -124,38 +112,19 @@
                 option.textContent = author;
                 authorSelect.appendChild(option);
             });
-
-            // Khởi tạo các nút A-Z
-            const alphabetContainer = document.getElementById('alphabet-container');
-            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-            alphabet.forEach(letter => {
-                let btn = document.createElement('button');
-                btn.textContent = letter;
-                btn.id = `btn-letter-${letter}`;
-                btn.className = "letter-btn shrink-0 px-3 py-1 rounded-lg text-sm font-medium transition-colors bg-gray-100 dark:bg-[#3d3d40] text-gray-600 dark:text-gray-300 hover:bg-pink-100 dark:hover:bg-pink-900/40";
-                btn.onclick = () => filterByLetter(letter);
-                alphabetContainer.appendChild(btn);
-            });
         }
 
-        // Helper: Lấy chữ cái đầu tiên (Bỏ dấu tiếng Việt, vd: Á -> A)
-        function getFirstLetter(name) {
-            return name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").charAt(0).toUpperCase();
-        }
-
-        // 4. HÀM VẼ GIAO DIỆN KẾT HỢP CÁC BỘ LỌC
+        // 4. HÀM VẼ GIAO DIỆN
         const container = document.getElementById('char-container');
 
         function renderChars() {
             container.innerHTML = '';
             
-            // Lọc dữ liệu qua cả 3 điều kiện
+            // Lọc dữ liệu qua Tác giả và Tag
             const dataToRender = charData.filter(char => {
                 const matchTag = currentTag ? char.tags.includes(currentTag) : true;
                 const matchAuthor = currentAuthor ? char.author === currentAuthor : true;
-                const matchLetter = currentLetter ? getFirstLetter(char.name) === currentLetter : true;
-                
-                return matchTag && matchAuthor && matchLetter;
+                return matchTag && matchAuthor;
             });
 
             if (dataToRender.length === 0) {
@@ -175,7 +144,6 @@
                 wrapper.innerHTML = `
                     <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-5 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 transition-all hover:shadow-md relative overflow-hidden">
                         
-                        <!-- Cột Trái -->
                         <div class="space-y-2.5 flex-1 w-full">
                             <div class="flex items-center gap-2">
                                 <h3 class="text-xl font-bold text-gray-800 dark:text-white">${char.name}</h3>
@@ -188,7 +156,6 @@
                             </div>
                         </div>
                         
-                        <!-- Cột Phải -->
                         <div class="flex items-center gap-3 w-full sm:w-auto justify-end shrink-0">
                             <a href="${char.ggaiLink}" target="_blank" class="bg-[#db5a6b] text-white font-bold px-5 py-2.5 rounded-xl text-sm hover:opacity-90 transition flex items-center gap-1.5 justify-center w-1/2 sm:w-auto shadow-sm">
                                 <i class="fa-solid fa-user-lock text-xs"></i> GGAI
@@ -206,20 +173,6 @@
         // CÁC HÀM CẬP NHẬT BỘ LỌC
         function filterByAuthor(author) {
             currentAuthor = author;
-            renderChars();
-        }
-
-        function filterByLetter(letter) {
-            currentLetter = letter;
-            
-            // Cập nhật giao diện nút bấm
-            document.querySelectorAll('.letter-btn, #btn-letter-all').forEach(btn => {
-                btn.className = "letter-btn shrink-0 px-3 py-1 rounded-lg text-sm font-medium transition-colors bg-gray-100 dark:bg-[#3d3d40] text-gray-600 dark:text-gray-300 hover:bg-pink-100 dark:hover:bg-pink-900/40";
-            });
-            
-            const activeBtn = letter === "" ? document.getElementById('btn-letter-all') : document.getElementById(`btn-letter-${letter}`);
-            activeBtn.className = "shrink-0 px-3 py-1 rounded-lg text-sm font-medium transition-colors bg-pink-500 text-white shadow-sm";
-
             renderChars();
         }
 
@@ -270,10 +223,5 @@
         initFilters();
         renderChars();
     </script>
-    <style>
-        /* CSS ẩn thanh cuộn ngang của bảng chữ cái cho đẹp mắt */
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
 </body>
 </html>
