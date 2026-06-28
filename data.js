@@ -43,7 +43,7 @@ const charData = [
     },
     {
         name: "Draco Malfoy",
-        author: "Mộng tàn hoa tương liễu",
+        author: "Mộng hồn tương luyến liễu hoa",
         category: "Hiện đại",
         tags: ["Harry Potter", "nhẹ nhàng"],
         ggaiLink: "https://aistudio.google.com/prompts/1wyAe-iFmDsNf7guOGeEDmPLV-0_n9y6S",
