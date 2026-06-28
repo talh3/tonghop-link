@@ -125,7 +125,7 @@ const charData = [
         name: "Kimura Shion",
         author: "Palette Số Hóa",
         category: "Hiện Đại",
-        tags: ["TXVT", "lốp", "Nhật Bản", "mù mặt", "đơn phương"],
+        tags: ["TXVT", "lốp", "Nhật Bản", "mù mặt"],
         ggaiLink: "https://aistudio.google.com/app/prompts/1c7opgpjSfiJAFNAbUjuLlXfMgas-kcoJ",
         storyLink: "https://rentry.org/loptruong"
     },
