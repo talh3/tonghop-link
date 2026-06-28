@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Nhân Vật Của Tôi</title>
-    <!-- Nhúng thư viện Tailwind CSS và FontAwesome để làm giao diện -->
+    <!-- Nhúng thư viện Tailwind CSS và FontAwesome làm giao diện -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
-        // Tự động kiểm tra và giữ chế độ Dark Mode nếu đã bật trước đó
+        // Sửa lỗi nhận diện ban đầu: Kiểm tra chính xác trạng thái đã lưu
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     </script>
 </head>
-<!-- Mặc định nền hồng nhạt, khi bật Dark Mode chuyển sang nền xám đen của ảnh watermarked_img_1741178076690525238.png -->
 <body class="bg-pink-50 dark:bg-[#2d2d30] min-h-screen text-gray-800 dark:text-gray-200 font-sans p-6 transition-colors duration-300">
 
     <!-- NÚT CHUYỂN ĐỔI SÁNG / TỐI -->
@@ -25,82 +26,97 @@
     </div>
 
     <!-- KHU VỰC CHỨA CÁC KHUNG NHÂN VẬT -->
-    <!-- Dạng danh sách xếp chồng hàng dọc, giới hạn độ rộng tối đa để nhìn cân đối -->
     <main id="char-container" class="max-w-4xl mx-auto space-y-4 pb-16">
-        <!-- JavaScript sẽ tự động đọc dữ liệu bên dưới và vẽ các khung vào đây -->
+        <!-- JavaScript tự động vẽ các khung và ô nhập văn bản vào đây -->
     </main>
 
     <footer class="text-center text-xs text-gray-400 dark:text-gray-500 my-10">
-        © 2026 - Bản tối giản cho bạn
+        © 2026 - Bản sửa lỗi Chế độ Sáng/Tối
     </footer>
 
-    <!-- ĐOẠN SCRIPT XỬ LÝ DỮ LIỆU VÀ GIAO DIỆN -->
     <script>
-        // 1. NƠI BẠN QUẢN LÝ VÀ THÊM BỚT NHÂN VẬT
-        // Muốn thêm nhân vật mới, bạn chỉ cần copy 1 cụm {...} rồi sửa thông tin bên trong.
+        // 1. NƠI CẤU HÌNH DỮ LIỆU
         const charData = [
             {
+                id: "ashton",
                 name: "Ashton Calloway",
                 subText: "Hiện đại | FWB · yearning · off-campus inspired",
-                ggaiLink: "https://link-ggai-cua-ashton.com",
-                storyLink: "https://link-story-cua-ashton.com"
+                ggaiLink: "https://link-ggai-cua-ashton.com"
             },
             {
+                id: "nghienle",
                 name: "Khương Nghiên Lễ",
                 subText: "Hiện đại | côn trùng real · em trai chị gái",
-                ggaiLink: "https://link-ggai-cua-nghienle.com",
-                storyLink: "https://link-story-cua-nghienle.com"
+                ggaiLink: "https://link-ggai-cua-nghienle.com"
             },
             {
+                id: "phidam",
                 name: "Khương Phi Đàm",
                 subText: "Học đường | Academic rivals · vô sỉ · mặt dày",
-                ggaiLink: "https://link-ggai-cua-phidam.com",
-                storyLink: "https://link-story-cua-phidam.com"
+                ggaiLink: "https://link-ggai-cua-phidam.com"
             },
             {
+                id: "vietlam",
                 name: "Khương Viết Lâm",
                 subText: "VN xưa | Hài · trinh thám · Nam Định",
-                ggaiLink: "https://link-ggai-cua-vietlam.com",
-                storyLink: "https://link-story-cua-vietlam.com"
+                ggaiLink: "https://link-ggai-cua-vietlam.com"
             }
         ];
 
-        // 2. HÀM TỰ ĐỘNG TẠO KHUNG ĐƯA LÊN GIAO DIỆN
+        // 2. HÀM VẼ GIAO DIỆN
         const container = document.getElementById('char-container');
 
         function renderChars() {
-            container.innerHTML = ''; // Làm sạch vùng chứa
+            container.innerHTML = '';
             
             charData.forEach(char => {
-                // Tạo một khối div cho mỗi nhân vật
-                const card = document.createElement('div');
-                // CSS tạo bo góc, viền nhạt, khi bật dark mode sẽ đổi màu nền xám tối chuẩn như ảnh watermarked_img_1741178076690525238.png
-                card.className = "bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-5 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-200 hover:shadow-md";
+                const wrapper = document.createElement('div');
+                wrapper.className = "flex flex-col space-y-2";
 
-                card.innerHTML = `
-                    <!-- Bên trái: Tên nhân vật và các dòng chữ nhỏ kèm theo -->
-                    <div class="space-y-1">
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-white">${char.name}</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">${char.subText}</p>
+                wrapper.innerHTML = `
+                    <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-5 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="space-y-1">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">${char.name}</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">${char.subText}</p>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+                            <a href="${char.ggaiLink}" target="_blank" class="bg-[#db5a6b] text-white font-bold px-5 py-2.5 rounded-xl text-sm hover:opacity-90 transition flex items-center gap-1.5 justify-center w-1/2 sm:w-auto">
+                                <i class="fa-solid fa-user-lock text-xs"></i> GGAI
+                            </a>
+                            <button onclick="toggleStory('${char.id}')" class="cursor-pointer bg-gray-50 dark:bg-[#2d2d30] text-gray-700 dark:text-gray-200 font-semibold px-5 py-2.5 rounded-xl text-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center gap-1.5 justify-center w-1/2 sm:w-auto">
+                                <i class="fa-solid fa-book-open text-xs"></i> Story
+                            </button>
+                        </div>
                     </div>
-                    
-                    <!-- Bên phải: 2 nút bấm riêng biệt -->
-                    <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
-                        <!-- Nút GGAI màu hồng đỏ nổi bật -->
-                        <a href="${char.ggaiLink}" target="_blank" class="bg-[#db5a6b] text-white font-bold px-5 py-2.5 rounded-xl text-sm hover:opacity-90 transition flex items-center gap-1.5 justify-center w-1/2 sm:w-auto">
-                            <i class="fa-solid fa-user-lock text-xs"></i> GGAI
-                        </a>
-                        <!-- Nút Story màu sáng/tối đồng bộ với nền -->
-                        <a href="${char.storyLink}" target="_blank" class="bg-gray-50 dark:bg-[#2d2d30] text-gray-700 dark:text-gray-200 font-semibold px-5 py-2.5 rounded-xl text-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center gap-1.5 justify-center w-1/2 sm:w-auto">
-                            <i class="fa-solid fa-book-open text-xs"></i> Story
-                        </a>
+
+                    <div id="story-area-${char.id}" class="hidden transition-all duration-300">
+                        <textarea 
+                            id="text-${char.id}"
+                            placeholder="Dán văn bản truyện hoặc ghi chú của ${char.name} vào đây..." 
+                            class="w-full h-48 p-4 bg-white dark:bg-[#1e1e1f] border border-pink-100 dark:border-[#333334] rounded-2xl text-sm shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-300 dark:focus:ring-pink-800 text-gray-700 dark:text-gray-300 resize-y"
+                        ></textarea>
                     </div>
                 `;
-                container.appendChild(card);
+                container.appendChild(wrapper);
+                
+                const savedText = localStorage.getItem(`story-text-${char.id}`);
+                if (savedText) {
+                    document.getElementById(`text-${char.id}`).value = savedText;
+                }
+
+                document.getElementById(`text-${char.id}`).addEventListener('input', (e) => {
+                    localStorage.setItem(`story-text-${char.id}`, e.target.value);
+                });
             });
         }
 
-        // 3. LOGIC ĐỔI CHẾ ĐỘ SÁNG / TỐI
+        function toggleStory(id) {
+            const storyDiv = document.getElementById(`story-area-${id}`);
+            storyDiv.classList.toggle('hidden');
+        }
+
+        // 3. LOGIC ĐỔI CHẾ ĐỘ SÁNG / TỐI (Đã sửa lỗi đồng bộ class)
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
@@ -115,15 +131,22 @@
             }
         }
 
+        // Chạy đồng bộ ngay khi load trang
         updateToggleBtn();
 
         themeToggleBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            // Thực hiện đảo ngược class dark rõ ràng hơn
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
             updateToggleBtn();
         });
 
-        // Kích hoạt vẽ giao diện
+        // Khởi tạo danh sách nhân vật
         renderChars();
     </script>
 </body>
