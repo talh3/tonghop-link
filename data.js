@@ -37,7 +37,7 @@ const charData = [
         name: "Lục Trình Dã",
         author: "Jiang Yi",
         category: "Hiện đại",
-        tags: ["showbiz", "nhân thú"],
+        tags: ["showbiz", "chó"],
         ggaiLink: "https://aistudio.google.com/app/prompts/1xrjitbMKLJntK5eeRDjh5oArlRX0MQAH",
         storyLink: "https://rentry.org/cho-con"
     },
@@ -69,7 +69,7 @@ const charData = [
         name: "Senge Namgyal",
         author: "Cửa Hàng Búp Bê",
         category: "Hiện đại",
-        tags: ["tây tạng", "mới "],
+        tags: ["tây tạng", "mới cưới"],
         ggaiLink: "https://aistudio.google.com/prompts/1HeRXSRBixKceKdcBlyhXwjhO_44ehgCb",
         storyLink: "https://rentry.org/senge-us"
     },
