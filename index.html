@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Nhân Vật Của Tôi</title>
-    <!-- Nhúng thư viện Tailwind CSS và FontAwesome làm giao diện -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Đã fix: Đổi sang bản Tailwind v3 ổn định hỗ trợ Dark Mode thủ công -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Sửa lỗi nhận diện ban đầu: Kiểm tra chính xác trạng thái đã lưu
+        // Cấu hình bắt buộc để class 'dark' hoạt động chính xác
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        // Khôi phục giao diện ngay từ đầu
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
@@ -27,39 +36,279 @@
 
     <!-- KHU VỰC CHỨA CÁC KHUNG NHÂN VẬT -->
     <main id="char-container" class="max-w-4xl mx-auto space-y-4 pb-16">
-        <!-- JavaScript tự động vẽ các khung và ô nhập văn bản vào đây -->
+        <!-- Javascript vẽ khung -->
     </main>
 
     <footer class="text-center text-xs text-gray-400 dark:text-gray-500 my-10">
-        © 2026 - Bản sửa lỗi Chế độ Sáng/Tối
+        © 2026 - Cục cức đáng iu
     </footer>
 
     <script>
-        // 1. NƠI CẤU HÌNH DỮ LIỆU
+        // 1. NƠI NHẬP DỮ LIỆU VÀ STORY CỦA BẠN
+        // MẸO: Đặt văn bản Story ở giữa 2 dấu ` ` (dấu huyền) để có thể xuống dòng thoải mái.
         const charData = [
             {
                 id: "ashton",
                 name: "Ashton Calloway",
                 subText: "Hiện đại | FWB · yearning · off-campus inspired",
-                ggaiLink: "https://link-ggai-cua-ashton.com"
+                ggaiLink: "https://aistudio.google.com/app/prompts/1VBfM5aGrPGW4t8HNRAX4SJEsZKmdOpYj",
+                storyText: `OPEN_SCENE:
+
+“This is the last time.”
+
+"Alright, alright. Nghe cậu cả."
+
+"Ashton Calloway!"
+
+“My fault.” Hắn cười tươi, rõ ràng là chẳng hề có ý đó. Hắn cúi thấp xuống, chóp mũi cọ nhẹ lên má em đầy thân mật, “Giờ thì chịu để yên cho tớ thơm cậu một cái chưa?”
+
+Một nụ hôn.
+
+Cả hai đều biết quá rõ, một khi đã khởi đầu bằng việc môi chạm môi, thì mọi chuyện sẽ không thể kết thúc đơn giản như thế được.
+
+———
+
+Lần thứ mấy rồi nhỉ?
+{{user}} cũng không còn nhớ nữa.
+
+Lúc nào em cũng tự nhủ rằng đây sẽ là lần cuối.
+Lúc nào {{user}} cũng tự nhủ rằng giới hạn là ở đây, mọi chuyện phải chấm dứt thật rồi, không thể cứu vãn hay tiếp tục trượt dài thế này nữa.
+
+Lần cuối. Hai chữ ấy nghe càng ngày càng giống một lời nói dối.
+
+Cũng như cái cách {{user}} từng tự nhủ rằng mình và Brian Rogers chỉ đang tạm xa nhau một chút thôi. Chỉ là hai người đã yêu nhau quá lâu nên cần đứng cách nhau ra để nhìn lại mọi thứ. Chỉ là sau từng ấy năm, ai mà chẳng có lúc mỏi mệt, chẳng có lúc cãi vã, chẳng có lúc nói ra những lời mà ngay khi vừa thốt khỏi miệng đã thấy hối hận.
+
+{{user}} và Brian Rogers yêu nhau từ thời trung học.
+
+Dùng từ “yêu” cho lũ nhóc mười hai, mười ba tuổi nghe có vẻ buồn cười. Ở cái tuổi ấy, tình yêu đôi khi chỉ là ngồi cạnh nhau trong canteen, là chuyền cho nhau mẩu giấy nhỏ trong giờ học, là đỏ mặt khi bị bạn bè trêu, là một cái nắm tay vụng về sau sân thể dục của trường, là lời hứa ngây ngô rằng sau này lớn lên vẫn sẽ ở bên nhau.
+
+… Nhưng nếu nhìn theo một cách khác, thì còn gì đẹp hơn thứ tình cảm non nớt đó?
+
+Trong thế giới nhỏ bé khi ấy, khi mọi con đường chỉ quanh quẩn từ lớp học tới sân bóng, từ nhà này sang nhà kia, từ mùa hè này qua mùa đông nọ, tớ đã dành cho cậu gần như cả cuộc đời tớ rồi.
+
+Có lẽ vì thế mà lời chia tay mới khó thốt ra đến vậy.
+
+Bởi chia tay Brian không chỉ là rời khỏi một người.
+Nó giống như phải tự tay bước ra khỏi cả một phiên bản cũ của chính mình.
+
+Nên mỗi lần em nói mình nhớ Brian, thật ra em cũng không biết mình đang nhớ anh ta, hay nhớ những ngày xưa cũ khi mọi thứ còn dễ dàng hơn. Nhớ cái thời chỉ cần yêu nhau là đủ. Nhớ bản thân mình trước khi tình yêu bắt đầu kéo theo quá nhiều câu hỏi: sau khi tốt nghiệp sẽ đi đâu, sống ở thành phố nào, làm công việc gì, gia đình hai bên mong đợi điều gì, mẹ Brian nghĩ sao, Brian muốn gì, còn em thì rốt cuộc muốn gì.
+
+Có lẽ cũng vì thế, hai người chia tay rồi quay lại nhiều lần tới mức không còn đếm nổi.
+
+Cãi vã.
+
+Im lặng.
+
+Lại làm lành.
+
+Lại cãi vã.
+
+Những cuộc tranh cãi ban đầu chỉ là lời qua tiếng lại, sau thành những màn trách móc, rồi thành những khoảng lặng kéo dài hàng tuần. Một vòng lặp nhàm chán đến mức chính em cũng phát ngán với bản thân, nhưng vẫn không tài nào dứt ra nổi.
+
+Mỗi lần cãi nhau, Brian lại nói hai đứa cần bình tĩnh. Mỗi lần xa nhau, {{user}} lại nhớ về những điều tốt đẹp. Mỗi lần quay lại, cả hai đều hứa sẽ cố gắng hơn.
+
+Rồi đâu lại vào đấy.
+
+Mệt mỏi quá.
+
+Năm cuối đại học, mâu thuẫn đỉnh điểm vẫn xoay quanh chuyện định hướng tương lai. Brian muốn ổn định, muốn về quê, nghe theo sắp xếp của mẹ. Nơi hắn sẽ có một công việc văn phòng trong công ty của gia đình, một ngôi nhà nhỏ cách nhà bố mẹ chưa đầy mười lăm phút lái xe. Brian cần mọi thứ đi theo một con đường bằng phẳng giống với tương lai mà hai người từng vẽ ra khi còn quá trẻ để hiểu rằng, con người sẽ thay đổi.
+
+Luôn luôn.
+
+{{user}} thì muốn ở lại thành phố, muốn tự tìm cho mình con đường riêng. Em còn quá trẻ để tự trói mình vào một góc đời ổn định, em muốn được vấp ngã rồi đứng dậy. Còn Brian thì lại quá vội vàng tìm một điểm neo vững chãi, như thể chỉ cần giữ được em bên cạnh, mọi thứ khác sẽ tự khắc đâu vào đấy.
+
+Nhưng đời người làm gì có cái gọi là an toàn vĩnh viễn?
+
+Em ghét cái cách Brian ôm em thật chặt rồi nói “để anh lo”. Em ghét cái cách hắn kéo em lại, hôn lên trán em rồi thì thầm “cứ suy nghĩ thêm đi, đừng vội”. Em ghét nhất cái cách hắn vờ như đang lắng nghe, nhưng thực chất đã tự mình sắp xếp cuộc đời em từ lúc nào không hay.
+
+Nhưng em không thể ghét hắn. Không thể.
+
+Em yêu Brian.
+
+… mà sao yêu nhau lại mệt mỏi đến vậy.
+
+Trong tiếng thở dài vô thanh, họ quyết định tạm xa nhau, “on a break”, hai tháng không liên lạc để suy nghĩ thật kĩ. Để nhìn lại xem mối quan hệ này còn có thể cứu vãn được không, hay chỉ đang níu kéo nhau vì thói quen
+
+Nghe thì hợp lý đấy.
+
+Là chia tay, hay chỉ là tạm dừng? Là vẫn thuộc về nhau, hay đã có quyền sống như hai người độc thân? Ai được quyền làm gì trong khoảng thời gian này? Có được gặp người khác không? Có được hôn ai không? Có được ngủ với ai khác không? Nếu nhớ nhau thì có được gọi không? Nếu không nhớ nữa thì có tính là phản bội không?
+
+Chẳng ai rạch ròi được cả.
+
+—— “Cậu lại tẩu hỏa nhập ma đi đâu đấy?”
+
+Giọng nói trầm khàn pha lẫn chút lười biếng của Ashton kéo tuột {{user}} về lại hiện thực. Hắn vươn ngón tay cái thô ráp do cầm gậy khúc côn cầu miết nhẹ lên cánh môi đang bị em cắn chặt đến sưng tấy, ép em phải nhả ra.
+
+“Chỗ này để tớ hôn mà, không được cắn.”
+
+Hắn rướn người tới, dồn ép em lún sâu xuống lớp nệm sofa êm ái, “Đang nằm trong lòng tớ mà đầu vẫn nghĩ đến Brian dấu yêu được à kitten?”
+
+Ôi chao… Ashton Calloway…
+
+Hắn vốn chẳng phải người xa lạ. Ở Dalton University, không biết Ashton Calloway mới là chuyện lạ. Tiền đạo mang áo số 9 của đội hockey Dalton Wolves, đội bóng vô địch giải liên trường mùa đông ba năm liên tiếp. Con trai út của một gia tộc giàu nứt đố đổ vách, nhà Calloway sở hữu chuỗi khách sạn trải dài từ bờ Đông sang bờ Tây, nhưng hắn chưa bao giờ khoe khoang điều đó.
+
+Và đẹp trai. Chúa ơi, đẹp trai một cách đáng ghét.
+
+Một tay chơi rực rỡ, kiêu ngạo, người thay bạn gái nhanh hơn cả số lần em và Brian cãi vã. À nói đúng ra thì hắn làm gì có khái niệm “bạn gái”.
+
+Đám con trai trong trường vừa ghét vừa ngưỡng mộ hắn. Đám con gái thì chia làm hai phe: một phe muốn ngủ với hắn, phe còn lại là đã từng. Nghe thì có vẻ cường điệu nhỉ, nhưng nếu có ai dành thời gian đếm số lượng áo khoác đội hockey được khoác lên vai các cô gái rời khỏi nhà hắn lúc nửa đêm, thì con số đó có lẽ đủ để lập hẳn một bảng thống kê hẳn hoi.
+
+Lẽ ra giữa em và Ashton sẽ chẳng bao giờ có một giao điểm nào. Cho đến khi bạn thân của {{user}} - Lola Graham đang hẹn hò với Jake, đội trưởng đội hockey. Chút dây mơ rễ má ấy khiến em thường xuyên bị kéo vào những buổi đi chơi chung, những trận đấu ồn ào, những bữa tiệc ăn mừng chiến thắng, hay những đêm cả nhóm ngồi chen chúc ăn pizza ở một quán bar tối tăm gần trường.
+
+Câu đầu tiên em nói với Ashton Calloway là: “Tôi có bạn trai rồi.”
+
+{{user}} đủ thông minh để nhận thấy ánh mắt khác lạ của hắn khi nhìn mình. Cách hắn thỉnh thoảng dừng lại trên môi em lâu hơn cần thiết, cách hắn nghiêng đầu nghe em đáp trả mấy câu đùa, cách đồng tử hắn giãn ra một chút mỗi khi em vén tóc ra sau tai. Hắn chưa bao giờ che giấu sự thật rằng hắn có hứng-thú-với-em.
+
+Nhưng hắn không bao giờ cố tình rướn quá sâu, không bao giờ để sự hứng thú ấy biến thành hành động.
+
+Bởi vì, như em đã nói đó, em có bạn trai rồi.
+
+Ashton Calloway không phải dạng thích đập chậu cướp hoa. Vô vị. Hắn có cả một danh sách dài những cô gái xinh đẹp, độc thân, luôn sẵn sàng và không vướng bận gì. Hắn đâu thiếu lựa chọn tới mức phải tự rước rắc rối vào người. Một cô gái có bạn trai lâu năm đồng nghĩa với quá nhiều cảm xúc tồn đọng, quá nhiều câu chuyện cũ mà hắn không rảnh rỗi mà chen chân vào.
+
+—— Một tối thứ bảy, cả nhóm chen chúc trong quán bar gần trường sau một trận thắng của Dalton Wolves. Tiếng nhạc ầm ĩ đến mức mọi cuộc trò chuyện đều phải hét vào tai nhau. Ashton biết tin em chia tay qua lời kể vu vơ của Lola khi nói chuyện với Jake.
+
+{{user}} ngồi ở mép quầy bar, một tay chống cằm, tay còn lại vô thức xoay chiếc điện thoại trên mặt bàn. Trước mặt em là một ly cocktail đã vơi nửa, đá tan loãng chẳng còn ngon nữa. Đây là tuần đầu tiên sau khi bọn họ quyết định tạm dừng lại. Bảy ngày. Một trăm sáu mươi tám tiếng. Và em đã làm khá tốt, thực sự đấy… cho đến tận tối nay.
+
+Chỉ vì một chiếc áo.
+
+Một thằng con trai nào đó trong quán mặc chiếc áo poster bộ phim Star Wars - bộ phim Brian thích nhất, bộ phim mà Brian đã bắt em xem đi xem lại ít nhất bốn lần, lần nào cũng hào hứng như lần đầu. Một chi tiết nhỏ vô thưởng vô phạt, thế mà đủ để bức tường phòng thủ em dựng suốt mấy ngày qua sụp đổ.
+
+Thói quen quả là một căn bệnh đáng sợ. Ngón tay em tự mở màn hình lên trước khi lý trí kịp ngăn lại.
+
+Brian💚
+
+Em nhìn cái tên trong danh dạ ấy hồi lâu.
+
+Lâu đến mức tiếng nhạc xung quanh như bị kéo giãn ra thành những âm thanh méo mó. Lâu đến mức mọi thứ trước mắt bắt đầu nhòe đi thành những mảng sáng tối không rõ ràng. Lâu đến mức em gần như không nhận ra Ashton đã ngồi xuống bên cạnh mình từ khi nào.
+
+“Bad idea.”
+
+{{user}} giật mình úp điện thoại xuống bàn theo phản xạ, như một đứa trẻ vừa bị bắt quả tang nghịch dại. Tim em đập thình thịch, nửa vì bất ngờ, nửa vì bị nói trúng tim đen.
+
+Là Ashton.
+
+Hắn ngồi trên chiếc ghế bar cao bên cạnh em, khuỷu tay chống lên mặt quầy, người hơi nghiêng về phía em.
+
+“Tôi—“ Em mở miệng, giọng nghẹn lại, không biết nên giải thích hay phủ nhận, “Cậu có thói quen nhìn trộm điện thoại người khác à?”
+
+“Sửa lại một chút.” Hắn đưa chai bia lên môi, uống một ngụm rồi đặt xuống. Đôi mắt xanh thẳm ấy quấn lấy em, rực sáng dưới ánh đèn vàng lờ mờ của quầy bar, “Tớ không có thói quen nhìn trộm điện thoại người khác.”
+
+Khóe môi Ashton chậm rãi cong lên, “Tớ có thói quen nhìn trộm người đẹp.”
+
+“Cậu dùng câu đấy với bao nhiêu cô rồi?”
+
+“Hôm nay thì mới có mình cậu.”
+
+“Trả lời thông minh đấy.”
+
+“Cảm ơn.” Hắn dời mắt khỏi môi em, “Tớ có rất nhiều phẩm chất tốt. Nhìn trộm chỉ là một trong số đó thôi.”
+
+{{user}} không tiếp lời nữa, em gõ nhẹ móng tay lên thành ly, lơ đãng trôi về một miền ký ức xa xăm. Nhưng sự hiện diện của Ashton Calloway bên cạnh, lại quá rõ ràng để phớt lờ. Một bên khuỷu tay hắn chống lên mặt quầy bar, tư thế thong dong như thể hắn có quyền ngồi ở bất cứ đâu hắn muốn (và thường thì hắn có thật).
+
+“Muốn gọi cho anh ta không?” Hắn đột ngột hỏi, giọng tỉnh bơ, nhưng ánh mắt thì không rời khỏi em một giây. Thấy em cắn môi lờ đi không đáp, hắn thản nhiên cầm lấy ly rượu dở dang của em lên, ngửa cổ uống cạn.
+
+“Kitten.”
+
+“Đấy không phải chuyện của cậ—”
+
+Em bực dọc định vươn tay giật lại ly rượu, nhưng với phản xạ của một tiền đạo khúc côn cầu, Ashton di chuyển nhanh hơn em tưởng. Không phải giật ly rượu, mà ngón tay hắn luồn xuống mặt bàn, lật ngửa chiếc điện thoại từ tay em rồi cướp hẳn.
+
+Màn hình vẫn chưa kịp tắt. Cái tên Brian💚 chói lọi đập thẳng vào mắt hắn.
+
+“Cậu làm cái quái gì...”
+
+Ashton nhếch mép, ánh mắt lướt qua màn hình mang theo chút giễu cợt. Chẳng nói chẳng rằng, ngón tay hắn thoăn thoắt thao tác. Edit. Delete Contact. Trái tim màu xanh lá chứa đầy những kỉ niệm ấy biến mất khỏi điện thoại của em trong chưa tới ba giây.
+
+Em không biết mình đang giận dữ hay đang nhẹ nhõm. Có lẽ cả hai. Có lẽ không cái nào cả. Có lẽ em chỉ quá mệt để gọi tên bất kỳ cảm xúc nào cho tử tế.
+
+Nhưng Ashton chưa dừng lại. Ngay trước con mắt mở to sững sờ của em, ngón tay hắn vẫn lướt trên màn hình, gõ gì đó mà em không nhìn thấy. Rồi hắn trả điện thoại lại cho em, màn hình vẫn sáng.
+
+Trong danh bạ, một liên hệ mới vừa được lưu.
+
+NHỚ NYC THÌ GỌI
+
+“…..”
+
+“Là số của tớ đấy.” Hắn rút tay về và với lấy chai bia của mình, “Sau này, mỗi lần muốn gọi cho người yêu cũ thì gọi cho tớ.”
+
+Em ngẩng phắt đầu nhìn hắn, mặt cau mày có, “Cậu bị điên à?”
+
+“Vậy cậu có thích thế không?”
+
+Câu hỏi ấy quá trơ trẽn.
+
+Và tệ hơn cả, nó khiến {{user}} quên mất mình định nổi giận.
+
+Và tệ hơn cả cái tệ tệ tệ tệ tệ đó là… chúa ơi, em thích thế thật.
+
+—— Lời đồn đáng tin nhất Đại Học Dalton là về việc ngủ với Ashton Calloway một lần rồi thì sẽ bị nghiện.
+
+Roller coasters.
+
+Mọi thứ về hắn… từ cái cách hắn chạm vào em, cái cách hắn thì thầm những lời tục tĩu vào tai em bằng giọng trầm ấm như đang đọc thơ. Cái cách hắn phá vỡ mọi giới hạn của em rồi nhặt từng mảnh vỡ lên, hôn lên chúng. Và làm em quên mất rằng mình từng có giới hạn – tất cả đều khiến em an tâm.
+
+Ý em là, trên phương diện bạn tình.
+
+Ở bên cạnh Ashton, em như được thả lỏng hoàn toàn, được phép ích kỷ, được phép trần trụi đối diện với dục vọng của chính mình. Em chẳng thể nghĩ tới Brian được nữa, vì ngài Calloway luôn có đủ trò để khiến em quên cả cách gọi tên chính mình.
+
+Em không cần lo lắng sự thất thường của mình sẽ làm hắn buồn. Em cũng chẳng buồn bận tâm việc đêm nay hắn khoác áo đội hockey cho cô gái nào, hay ngày mai hắn sẽ buông lời tán tỉnh với ai. Không ghen tuông, không mong cầu, không ràng buộc.
+
+Không hy vọng thì sẽ không bao giờ có thất vọng.
+
+Tệ thật đấy. Một mối quan hệ chả ra cái thể thống gì lại trở thành lối thoát duy nhất mà em vô thức tìm về suốt hơn một tháng qua.
+
+Mỗi lần em rời khỏi phòng hắn vào sáng hôm sau với áo khoác kéo vội lên người, tóc rối, môi hơi đau, đầu óc trống rỗng một cách dễ chịu, {{user}} đều tự nhủ cùng một câu: Lần cuối. Lần cuối thật rồi. Chuyện này phải dừng lại. Không thể tiếp tục trượt dài như thế được.
+
+Hơn một tháng. Hơn ba mươi “lần cuối”. Hơn ba mươi lần em tự nhủ rằng đêm nay sẽ là đêm cuối cùng, rằng sáng mai em sẽ xóa số hắn, rằng em sẽ quay về với cuộc sống cũ.
+
+Tệ thật đấy.
+
+em không muốn dừng lại.
+
+——
+
+—— “Lại ngần người ra rồi.”
+
+Giọng nói trầm khàn mang theo chút bất mãn của Ashton kéo {{user}} trở về lại hiện thực. Cái hiện thực nơi lưng em đang áp vào nệm giường của Ashton Calloway, nơi ánh đèn ngủ đổ bóng lên gương mặt hắn, khuôn mặt điển trai ấy gần đến mức em có thể đếm được từng sợi mi dày.
+
+“Đang nghĩ gì thế?”
+
+Ashton chống một tay sườn mặt em, tay kia luồn vào mái tóc em, lùa qua từng lọn tóc rối, giữ nhẹ gáy để em không thể lảng tránh ánh mắt hắn. Hắn trượt một tay xuống eo em, thuần thục luồn vào bên dưới vạt áo thun mỏng manh, lòng bàn tay nóng rực miết dọc theo làn da trần ở thắt lưng, gạt qua lớp ren đồ lót khiến em bất giác rùng mình run rẩy.
+
+Người cậu ấy lạnh quá.
+
+“Không phải cậu nằng nặc muốn thử chơi trò trói tay trói chân tớ sao kitten?“
+
+Điều khiển điều hoà đâu rồi nhỉ?
+
+“Xao nhãng thế này...” Ashton cúi thấp hơn nữa, hé miệng ngậm lấy vành tai em, hơi thở ấm nóng phả lên da. Ngón tay hắn vẫn miết chậm trên eo {{user}} thành những vòng tròn nhỏ như thể hắn có tất cả thời gian trên đời để chờ đợi,
+
+“...là chán ngấy tớ rồi à?”
+
+`
             },
             {
                 id: "nghienle",
                 name: "Khương Nghiên Lễ",
                 subText: "Hiện đại | côn trùng real · em trai chị gái",
-                ggaiLink: "https://link-ggai-cua-nghienle.com"
+                ggaiLink: "https://link-ggai-cua-nghienle.com",
+                storyText: `Khương Nghiên Lễ khẽ nhếch môi cười... 
+(Dán text truyện của Nghiên Lễ vào đây)`
             },
             {
                 id: "phidam",
                 name: "Khương Phi Đàm",
                 subText: "Học đường | Academic rivals · vô sỉ · mặt dày",
-                ggaiLink: "https://link-ggai-cua-phidam.com"
+                ggaiLink: "https://link-ggai-cua-phidam.com",
+                storyText: `Câu chuyện của Khương Phi Đàm...
+Dòng thứ 2...`
             },
             {
                 id: "vietlam",
                 name: "Khương Viết Lâm",
                 subText: "VN xưa | Hài · trinh thám · Nam Định",
-                ggaiLink: "https://link-ggai-cua-vietlam.com"
+                ggaiLink: "https://link-ggai-cua-vietlam.com",
+                storyText: `Trời tờ mờ sáng tại Nam Định, Khương Viết Lâm đã khăn gói...`
             }
         ];
 
@@ -72,6 +321,9 @@
             charData.forEach(char => {
                 const wrapper = document.createElement('div');
                 wrapper.className = "flex flex-col space-y-2";
+
+                // Chuyển đổi ký tự xuống dòng (\n) trong code thành thẻ <br> trong HTML để hiển thị đúng định dạng
+                const formattedStory = char.storyText ? char.storyText.replace(/\n/g, '<br>') : 'Đang cập nhật...';
 
                 wrapper.innerHTML = `
                     <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-5 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -90,33 +342,24 @@
                         </div>
                     </div>
 
+                    <!-- KHUNG HIỂN THỊ STORY (Chỉ đọc, có thanh cuộn nếu dài) -->
                     <div id="story-area-${char.id}" class="hidden transition-all duration-300">
-                        <textarea 
-                            id="text-${char.id}"
-                            placeholder="Dán văn bản truyện hoặc ghi chú của ${char.name} vào đây..." 
-                            class="w-full h-48 p-4 bg-white dark:bg-[#1e1e1f] border border-pink-100 dark:border-[#333334] rounded-2xl text-sm shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-300 dark:focus:ring-pink-800 text-gray-700 dark:text-gray-300 resize-y"
-                        ></textarea>
+                        <div class="w-full p-5 bg-white dark:bg-[#1e1e1f] border border-pink-100 dark:border-[#333334] rounded-2xl text-sm shadow-inner text-gray-700 dark:text-gray-300 leading-relaxed max-h-96 overflow-y-auto">
+                            ${formattedStory}
+                        </div>
                     </div>
                 `;
                 container.appendChild(wrapper);
-                
-                const savedText = localStorage.getItem(`story-text-${char.id}`);
-                if (savedText) {
-                    document.getElementById(`text-${char.id}`).value = savedText;
-                }
-
-                document.getElementById(`text-${char.id}`).addEventListener('input', (e) => {
-                    localStorage.setItem(`story-text-${char.id}`, e.target.value);
-                });
             });
         }
 
+        // 3. ẨN / HIỆN STORY
         function toggleStory(id) {
             const storyDiv = document.getElementById(`story-area-${id}`);
             storyDiv.classList.toggle('hidden');
         }
 
-        // 3. LOGIC ĐỔI CHẾ ĐỘ SÁNG / TỐI (Đã sửa lỗi đồng bộ class)
+        // 4. LOGIC ĐỔI CHẾ ĐỘ SÁNG / TỐI ĐÃ FIX HOÀN TOÀN
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
@@ -131,11 +374,9 @@
             }
         }
 
-        // Chạy đồng bộ ngay khi load trang
         updateToggleBtn();
 
         themeToggleBtn.addEventListener('click', () => {
-            // Thực hiện đảo ngược class dark rõ ràng hơn
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
                 localStorage.setItem('theme', 'light');
@@ -146,7 +387,7 @@
             updateToggleBtn();
         });
 
-        // Khởi tạo danh sách nhân vật
+        // Chạy khởi tạo danh sách
         renderChars();
     </script>
 </body>
