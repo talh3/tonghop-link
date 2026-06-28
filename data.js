@@ -118,7 +118,15 @@ const charData = [
         author: "Palette Số Hóa",
         category: "Dân Quốc",
         tags: ["què", "gà trống nuôi con"],
-        ggaiLink: "https://aistudio.google.com/app/prompts/1QJj4FzkItRXef9A5vObEe0x-LBqHBZtG",
+        ggaiLink: "https://aistudio.google.com/app/prompts/1mXuFoyuRIdLHeqpsKH4r_wuCW8I6Al3v",
         storyLink: "https://rentry.org/chagiaroidko"
+    },
+    {
+        name: "Phó Tự Sâm",
+        author: "Palette Số Hóa",
+        category: "Hiện Đại",
+        tags: ["TXVT", "lốp"],
+        ggaiLink: "https://aistudio.google.com/app/prompts/1c7opgpjSfiJAFNAbUjuLlXfMgas-kcoJ",
+        storyLink: "https://rentry.org/loptruong"
     },
 ];
