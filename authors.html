@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <script>
-        // Đồng bộ chế độ Sáng/Tối từ trang chính sang
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
@@ -28,71 +27,66 @@
             <i class="fa-solid fa-feather-pointed mr-2"></i>Thư Viện Tác Giả
         </h1>
         
-        <!-- Nút quay lại trang chủ -->
         <a href="index.html" class="cursor-pointer bg-white dark:bg-[#1e1e1f] text-gray-700 dark:text-gray-300 font-medium px-4 py-2 rounded-full shadow-sm border border-pink-100 dark:border-[#333334] hover:scale-105 transition-all text-sm flex items-center gap-2">
             <i class="fa-solid fa-arrow-left"></i> Trang chính
         </a>
     </div>
 
-    <!-- DANH SÁCH CÁC TÁC GIẢ -->
-    <!-- Dùng grid chia thành 3 cột trên máy tính, 1 cột trên điện thoại -->
+    <!-- DANH SÁCH CÁC TÁC GIẢ (Giữ nguyên bố cục 3 hộp đứng của ảnh image_25b9ba.jpg) -->
     <main class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-16">
 
         <!-- TÁC GIẢ 1: GÀ -->
-        <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-6 shadow-sm flex flex-col items-center text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-            <!-- Avatar Tác giả -->
-            <div class="w-20 h-20 bg-pink-100 dark:bg-[#2d2d30] rounded-full flex items-center justify-center mb-4 border-2 border-pink-200 dark:border-[#524a4d]">
-                <i class="fa-solid fa-user-astronaut text-3xl text-pink-500 dark:text-pink-400"></i>
-            </div>
+        <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-8 shadow-sm flex flex-col items-center justify-center text-center min-h-[180px] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+            <!-- Chỉ giữ lại Tên tác giả -->
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6">Gà</h3>
             
-            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gà</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">Chuyên mục: Học đường, Hiện đại...</p>
-            
-            <!-- Link Mạng Xã Hội -->
-            <div class="flex gap-3">
-                <a href="LINK_DISCORD_CUA_GA_O_DAY" target="_blank" class="w-10 h-10 rounded-full bg-[#5865F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity tooltip" title="Discord">
+            <!-- Hàng chứa các nút liên kết tròn ở dưới cùng -->
+            <div class="flex gap-3 justify-center">
+                <a href="LINK_DISCORD_CUA_GA" target="_blank" class="w-10 h-10 rounded-full bg-[#5865F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Discord">
                     <i class="fa-brands fa-discord"></i>
                 </a>
-                <a href="LINK_FB_CUA_GA_O_DAY" target="_blank" class="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity tooltip" title="Facebook">
+                <a href="LINK_FB_CUA_GA" target="_blank" class="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Facebook">
                     <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="LINK_WEB_CUA_GA" target="_blank" class="w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-500 text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Website / Rentry">
+                    <i class="fa-solid fa-globe"></i>
                 </a>
             </div>
         </div>
 
         <!-- TÁC GIẢ 2: GIA NHI -->
-        <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-6 shadow-sm flex flex-col items-center text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-            <div class="w-20 h-20 bg-purple-100 dark:bg-[#2d2d30] rounded-full flex items-center justify-center mb-4 border-2 border-purple-200 dark:border-[#524a4d]">
-                <i class="fa-solid fa-user-ninja text-3xl text-purple-500 dark:text-purple-400"></i>
-            </div>
+        <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-8 shadow-sm flex flex-col items-center justify-center text-center min-h-[180px] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6">Gia Nhi</h3>
             
-            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gia Nhi</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">Chuyên mục: Cổ đại, Hiện đại...</p>
-            
-            <div class="flex gap-3">
-                <!-- Xóa dòng nào bạn không cần (Ví dụ Gia Nhi chỉ dùng Facebook thì xóa thẻ <a> của Discord đi) -->
-                <a href="LINK_FB_CUA_GIA_NHI" target="_blank" class="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity">
+            <div class="flex gap-3 justify-center">
+                <a href="LINK_DISCORD_CUA_GIA_NHI" target="_blank" class="w-10 h-10 rounded-full bg-[#5865F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Discord">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+                <a href="LINK_FB_CUA_GIA_NHI" target="_blank" class="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Facebook">
                     <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="LINK_WEB_CUA_GIA_NHI" target="_blank" class="w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-500 text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Website / Rentry">
+                    <i class="fa-solid fa-globe"></i>
                 </a>
             </div>
         </div>
 
         <!-- TÁC GIẢ 3: JIANG YI -->
-        <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-6 shadow-sm flex flex-col items-center text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-            <div class="w-20 h-20 bg-blue-100 dark:bg-[#2d2d30] rounded-full flex items-center justify-center mb-4 border-2 border-blue-200 dark:border-[#524a4d]">
-                <i class="fa-solid fa-user-secret text-3xl text-blue-500 dark:text-blue-400"></i>
-            </div>
+        <div class="bg-white dark:bg-[#1e1e1f] rounded-2xl border border-pink-100 dark:border-[#333334] p-8 shadow-sm flex flex-col items-center justify-center text-center min-h-[180px] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6">Jiang Yi</h3>
             
-            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Jiang Yi</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">Chuyên mục: Showbiz, Nhân thú...</p>
-            
-            <div class="flex gap-3">
-                <a href="LINK_DISCORD_CUA_JIANG_YI" target="_blank" class="w-10 h-10 rounded-full bg-[#5865F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity">
+            <div class="flex gap-3 justify-center">
+                <a href="LINK_DISCORD_CUA_JIANG_YI" target="_blank" class="w-10 h-10 rounded-full bg-[#5865F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Discord">
                     <i class="fa-brands fa-discord"></i>
+                </a>
+                <a href="LINK_FB_CUA_JIANG_YI" target="_blank" class="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="LINK_WEB_CUA_JIANG_YI" target="_blank" class="w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-500 text-white flex items-center justify-center hover:opacity-80 transition-opacity" title="Website / Rentry">
+                    <i class="fa-solid fa-globe"></i>
                 </a>
             </div>
         </div>
-
-        <!-- COPY KHỐI TRÊN NẾU BẠN MUỐN THÊM TÁC GIẢ SỐ 4, SỐ 5... -->
 
     </main>
 
