@@ -22,12 +22,22 @@
 <body class="bg-pink-50 dark:bg-[#2d2d30] min-h-screen text-gray-800 dark:text-gray-200 font-sans p-6 transition-colors duration-300">
 
     <div class="max-w-4xl mx-auto mb-6 space-y-4">
-        <!-- Hàng 1: Tiêu đề & Nút Sáng/Tối -->
+<!-- Hàng 1: Tiêu đề & Các nút tiện ích -->
         <div class="flex justify-between items-center">
             <h1 class="text-2xl font-bold text-pink-600 dark:text-pink-400">Thư Viện Nhân Vật</h1>
-            <button id="theme-toggle" class="cursor-pointer bg-white dark:bg-[#1e1e1f] text-gray-700 dark:text-yellow-400 font-medium px-4 py-2 rounded-full shadow-sm border border-pink-100 dark:border-[#333334] hover:scale-105 transition-all text-sm flex items-center gap-2">
-                <span id="theme-icon">☀️</span> <span id="theme-text">Chế độ Sáng</span>
-            </button>
+            
+            <!-- Nhóm nút bên phải -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- NÚT PROFILE (Link ra Rentry) -->
+                <a href="https://rentry.org/profile-user" target="_blank" class="cursor-pointer bg-white dark:bg-[#1e1e1f] text-pink-600 dark:text-pink-400 font-medium px-4 py-2 rounded-full shadow-sm border border-pink-100 dark:border-[#333334] hover:scale-105 transition-all text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-user"></i> <span class="hidden sm:inline">Profile</span>
+                </a>
+
+                <!-- NÚT SÁNG / TỐI (Giữ nguyên) -->
+                <button id="theme-toggle" class="cursor-pointer bg-white dark:bg-[#1e1e1f] text-gray-700 dark:text-yellow-400 font-medium px-4 py-2 rounded-full shadow-sm border border-pink-100 dark:border-[#333334] hover:scale-105 transition-all text-sm flex items-center gap-2">
+                    <span id="theme-icon">☀️</span> <span id="theme-text" class="hidden sm:inline">Chế độ Sáng</span>
+                </button>
+            </div>
         </div>
 
         <!-- Hàng 2: Bộ lọc Tác giả -->
