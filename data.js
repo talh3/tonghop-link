@@ -75,7 +75,7 @@ const charData = [
     },
     {
         name: "Lục Trạch",
-        author: "??",
+        author: "Frias",
         category: "Hiện đại",
         tags: ["vịt con?"],
         ggaiLink: "https://aistudio.google.com/prompts/1o-Ry60xICJvgQEQe8nYt8kqSCnNa6JAR",
@@ -83,7 +83,7 @@ const charData = [
     },
     {
         name: "Trần Dạ",
-        author: "??",
+        author: "Frias",
         category: "Hiện đại",
         tags: ["TXVT", "mũm mĩm", "đại ca"],
         ggaiLink: "https://aistudio.google.com/prompts/10IgoqntnX9Q3oamgD57sxJ2bpdGvlJag",
@@ -136,5 +136,13 @@ const charData = [
         tags: ["guide x esper"],
         ggaiLink: "https://aistudio.google.com/app/prompts/1D-F2pEr9qRR3uXj0Ib4PBY_tE0K86EJZ",
         storyLink: "https://rentry.org/chieuvien"
+    },
+    {
+        name: "Ahn Si-woo",
+        author: "Frias",
+        category: "Hiện Đại",
+        tags: ["hồng hài nhi", "cún con"],
+        ggaiLink: "https://aistudio.google.com/app/prompts/1InqZ2zUNLy8voFJTBEdt4Zc6ysS3k0eD",
+        storyLink: "https://rentry.org/si-woo"
     }
 ];
