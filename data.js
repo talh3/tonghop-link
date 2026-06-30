@@ -144,5 +144,13 @@ const charData = [
         tags: ["hồng hài nhi", "cún con"],
         ggaiLink: "https://aistudio.google.com/app/prompts/1InqZ2zUNLy8voFJTBEdt4Zc6ysS3k0eD",
         storyLink: "https://rentry.org/si-woo"
-    }
+    },
+    {
+        name: "Tống Nghiêm",
+        author: "Ba Chua Tuyet",
+        category: "Hiện Đại",
+        tags: ["TXVT"],
+        ggaiLink: "https://aistudio.google.com/app/prompts/1t4WROCMHTrC1xj4sLomKC161Vnm3zp5W",
+        storyLink: "https://rentry.org/tongnghiem"
+    },
 ];
